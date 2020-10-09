@@ -19,7 +19,7 @@ https://github.com/greyby/hammerspoon
 ## 语言切换
 
 - en [English](README.md)
-- zh_CN [简体中文](README.zh_CN.md)
+- zh_CN [简体中文](README_zh-CN.md)
 
 ## 功能
 
