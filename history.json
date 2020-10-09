@@ -1,0 +1,146 @@
+[
+  {
+    "subText" : "cmd|cat filename|显示或连接文件",
+    "text" : "cat"
+  },
+  {
+    "subText" : "cmd|cd dirname|打开当前目录",
+    "text" : "cd"
+  },
+  {
+    "subText" : "cmd|chgrp staff filename|改变文件或目录的所属组",
+    "text" : "chgrp"
+  },
+  {
+    "subText" : "cmd|chmod -R 777 filename|改变文件或目录的权限",
+    "text" : "chmod"
+  },
+  {
+    "subText" : "cmd|chown newowner:newowner filename|改变文件或目录的属主",
+    "text" : "chown"
+  },
+  {
+    "subText" : "cmd|clear|清屏",
+    "text" : "clear"
+  },
+  {
+    "subText" : "cmd|cp file1 file2|复制文件或目录",
+    "text" : "cp"
+  },
+  {
+    "subText" : "cmd|date|显示系统的当前日期和时间",
+    "text" : "date"
+  },
+  {
+    "subText" : "cmd|diff file1 file2|比较并显示两个文件的差异",
+    "text" : "diff"
+  },
+  {
+    "subText" : "cmd|kill -9 pid|终止进程",
+    "text" : "kill"
+  },
+  {
+    "subText" : "cmd|ln -s file1 file2|联接文件",
+    "text" : "ln"
+  },
+  {
+    "subText" : "cmd|ls -l|显示当前目录的内容",
+    "text" : "ls"
+  },
+  {
+    "subText" : "cmd|lsof -i:port|查看端口",
+    "text" : "lsof"
+  },
+  {
+    "subText" : "cmd|mkdir dirname|创建一个目录",
+    "text" : "mkdir"
+  },
+  {
+    "subText" : "cmd|mv file1 file2|移动文件名或目录、重命名",
+    "text" : "mv"
+  },
+  {
+    "subText" : "cmd|passwd|修改用户密码",
+    "text" : "passwd"
+  },
+  {
+    "subText" : "cmd|ping ip|给一个网络主机发送 回应请求",
+    "text" : "ping"
+  },
+  {
+    "subText" : "cmd|ps u|显示进程当前状态",
+    "text" : "ps"
+  },
+  {
+    "subText" : "cmd|reboot|重启电脑",
+    "text" : "reboot"
+  },
+  {
+    "subText" : "cmd|rm -rf filename|删除文件或目录",
+    "text" : "rm"
+  },
+  {
+    "subText" : "cmd|rmdir dirname|删除一个目录",
+    "text" : "rmdir"
+  },
+  {
+    "subText" : "cmd|scp -r \/Users\/test username@ip:\/root|从本地将文件夹传输到服务器",
+    "text" : "scp -r"
+  },
+  {
+    "subText" : "cmd|scp -r username@ip:\/data\/test \/Users\/mac\/Desktop|将服务器上的文件夹传输到本地",
+    "text" : "scp -r username"
+  },
+  {
+    "subText" : "cmd|scp \/Users\/mac\/test.png username@ip:\/root |从本地将文件传输到服务器",
+    "text" : "scp"
+  },
+  {
+    "subText" : "cmd|scp username@ip:\/data\/111.png \/Users\/mac\/Desktop|将服务器上的文件传输到本地",
+    "text" : "scp username"
+  },
+  {
+    "subText" : "cmd|source ~\/.bash_profile|使环境变量生效",
+    "text" : "source ~\/.bash_profile"
+  },
+  {
+    "subText" : "cmd|ssh username@ip|ssh远程登录",
+    "text" : "ssh"
+  },
+  {
+    "subText" : "cmd|tail -f file|显示文件的最后几行、实时查看日志文件",
+    "text" : "tail"
+  },
+  {
+    "subText" : "cmd|tar xvf filename.tar|解压格式tar",
+    "text" : "tar"
+  },
+  {
+    "subText" : "cmd|telnet ip port|远程连接,需要先安装telnet",
+    "text" : "telnet"
+  },
+  {
+    "subText" : "cmd|vi ~\/.bash_profile|修改环境变量",
+    "text" : "vi ~\/.bash_profile"
+  },
+  {
+    "subText" : "code|java|author注释模板",
+    "text" : "\/**   \n* @Title: ${file_name} \n* @Package ${package_name} \n* @Description: ${todo}(用一句话描述该文件做什么) \n* @author sugood\n* @date ${date} ${time} \n* @version V1.0   \n*\/"
+  },
+  {
+    "subText" : "code|java|author注释模板",
+    "text" : "something"
+  },
+  {
+    "subText" : "key|Command+Option+C|复制路径",
+    "text" : "Command+Option+C"
+  },
+  {
+    "subText" : "key|Command+Q|关闭程序",
+    "text" : "Command+Q"
+  },
+  {
+    "subText" : "key|Command+Shift+.|显示隐藏文件",
+    "text" : "Command+Shift+."
+  }
+]

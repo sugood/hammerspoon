@@ -1,0 +1,6 @@
+require "modules/reload"
+require "modules/hotkey"
+require "modules/system"
+require "modules/windows"
+require "modules/launcher"
+require "modules/snippet"
