@@ -79,5 +79,5 @@ https://github.com/greyby/hammerspoon
 
 ### 片段和备忘录
 
-* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>A</kbd> 添加一个片段或者备忘
-* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>V</kbd> 列出片段或备忘录并使用
+* <kbd>⌃</kbd><kbd>⌘</kbd> + <kbd>A</kbd> 添加一个片段或者备忘
+* <kbd>⌃</kbd><kbd>⌘</kbd> + <kbd>V</kbd> 列出片段或备忘录并使用

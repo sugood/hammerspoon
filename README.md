@@ -81,5 +81,5 @@ https://github.com/greyby/hammerspoon
 
 ### Snippet & Memorandum
 
-* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>A</kbd> Add a snippet or memos
-* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>V</kbd> List snippet or memos and use them
+* <kbd>⌃</kbd><kbd>⌘</kbd> + <kbd>A</kbd> Add a snippet or memos
+* <kbd>⌃</kbd><kbd>⌘</kbd> + <kbd>V</kbd> List snippet or memos and use them
