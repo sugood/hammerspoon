@@ -4,7 +4,7 @@
 
 1. Install [Hammerspoon](http://www.hammerspoon.org/)
 2. `git clone https://github.com/sugood/hammerspoon.git ~/.hammerspoon`
-3. Detailed description `https://blog.csdn.net/sugoods/article/details/108984326`
+3. [Detailed description](https://blog.csdn.net/sugoods/article/details/108984326)
 
 ## Modifier keys
 |           |  Key           |
