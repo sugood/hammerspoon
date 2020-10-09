@@ -16,6 +16,11 @@
 ## 代码参考
 https://github.com/greyby/hammerspoon
 
+## 语言切换
+
+- en [English](README.md)
+- zh_CN [简体中文](README.zh_CN.md)
+
 ## 功能
 
 ### 窗口管理
