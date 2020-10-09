@@ -13,6 +13,9 @@
 | <kbd>⌥</kbd> | Option 		 |
 | <kbd>⌘</kbd> | Command   	 |
 
+## Reference code
+https://github.com/greyby/hammerspoon
+
 ## Features
 
 ### Window Management
@@ -73,5 +76,5 @@
 
 ### Snippet & Memorandum
 
-* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>A</kbd> Add a snippet or memorandum
+* <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>A</kbd> Add a snippet or memos
 * <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>V</kbd> List snippet or memos and use them

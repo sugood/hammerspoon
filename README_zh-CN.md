@@ -13,6 +13,9 @@
 | <kbd>⌥</kbd> | Option 		 |
 | <kbd>⌘</kbd> | Command   	 |
 
+## 代码参考
+https://github.com/greyby/hammerspoon
+
 ## 功能
 
 ### 窗口管理
