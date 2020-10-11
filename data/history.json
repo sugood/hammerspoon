@@ -60,6 +60,10 @@
     "text" : "mv"
   },
   {
+    "subText" : "cmd|npm install <package>|使用npm安装软件",
+    "text" : "npm install <package>"
+  },
+  {
     "subText" : "cmd|passwd|修改用户密码",
     "text" : "passwd"
   },
@@ -128,8 +132,8 @@
     "text" : "\/**   \n* @Title: ${file_name} \n* @Package ${package_name} \n* @Description: ${todo}(用一句话描述该文件做什么) \n* @author sugood\n* @date ${date} ${time} \n* @version V1.0   \n*\/"
   },
   {
-    "subText" : "code|java|author注释模板",
-    "text" : "something"
+    "subText" : "ins|brew install node|安装node",
+    "text" : "brew install node"
   },
   {
     "subText" : "key|Command+Option+C|复制路径",

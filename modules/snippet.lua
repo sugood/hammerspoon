@@ -2,25 +2,42 @@ local chooser = require("hs.chooser")
 local console = require("hs.console")
 
 console.clearConsole()
-local historyPath= "~/.hammerspoon/history.json"
+local historyPath= "~/.hammerspoon/data/history.json"
 local maxLength = 1000
 local history = {}
+local mChooser
 
 function initData()
     if hs.json.read(historyPath) ~= nil then
         history = hs.json.read(historyPath)
     end
+    isSearck = false
 end
 -- 初始化，读取本地数据
 initData()
 -- 查重
-function duplicate(tablea,keys)
-    for k,v in ipairs(tablea) do
+function duplicate(table,keys)
+    for k,v in ipairs(table) do
         if v.text == keys then
             return true
         end
     end
     return false
+end
+-- 字符串判空
+function isEmpty(str)
+    return str == nil or str == '' 
+end
+-- 查询text是否存在并返回索引index
+-- 等于0为没有查询到，大于0为查询到
+function searchByText(table,text)
+    for k,v in ipairs(table) do
+        if v.text == text then
+            print("结果："..k)
+            return k
+        end
+    end
+    return 0
 end
 -- 清除收尾空格
 function trim(input)
@@ -100,8 +117,17 @@ function modifyHistory(text, subText, isText, index)
     end
 end
 -- 右键弹出菜单
-local menuFn = function(index)
-    if index then
+local rightClickCallbackFn = function(index)
+    if index and index > 0 then
+        local selectResult = mChooser:selectedRowContents(index)
+        if selectResult == nil or isEmpty(selectResult.text) then
+            return 
+        end
+        index = searchByText(history,selectResult.text)
+        if index == 0 then
+            hs.alert.show("找不到片段")
+            return 
+        end 
         menubar = hs.menubar.new(false)
         menubar:setTitle("Hidden Menu")
         menubar:setMenu( {
@@ -135,9 +161,9 @@ local menuFn = function(index)
 end
 -- 选取片段内容（按下快捷键时显示片段列表，点击选中的快捷键将自动粘贴）
 hs.hotkey.bind({ "ctrl", "cmd" }, "V", function ()
-    chooser.new(completionFn)
+    mChooser = chooser.new(completionFn)
     :choices(history)
-    :rightClickCallback(menuFn)
+    :rightClickCallback(rightClickCallbackFn)
     :searchSubText(true)
     :show()
 end)
