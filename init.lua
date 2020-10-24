@@ -1,9 +1,15 @@
+hs.configdir = os.getenv('HOME') .. '/.hammerspoon'
+package.path = hs.configdir .. '/?.lua;' .. hs.configdir .. '/?/init.lua;' .. hs.configdir .. '/Spoons/?.spoon/init.lua;' .. package.path
+
 require "modules/reload"
+require "modules/commons"
 require "modules/hotkey"
 require "modules/system"
 require "modules/windows"
 require "modules/launcher"
 require "modules/snippet"
-
--- 监听~./hammerspoon/data/中的文件，如果有改变就自动更新
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/data", hs.reload):start()
+require "modules/timesync"
+require "modules/inputstat"
+require "modules/dict"
+require "modules/jsonFormat"
+require "modules/caffeine"

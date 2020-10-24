@@ -1,7 +1,5 @@
 local chooser = require("hs.chooser")
-local console = require("hs.console")
 
-console.clearConsole()
 local historyPath= "~/.hammerspoon/data/history.json"
 local maxLength = 1000
 local history = {}
@@ -24,10 +22,7 @@ function duplicate(table,keys)
     end
     return false
 end
--- 字符串判空
-function isEmpty(str)
-    return str == nil or str == '' 
-end
+
 -- 查询text是否存在并返回索引index
 -- 等于0为没有查询到，大于0为查询到
 function searchByText(table,text)
@@ -120,7 +115,7 @@ end
 local rightClickCallbackFn = function(index)
     if index and index > 0 then
         local selectResult = mChooser:selectedRowContents(index)
-        if selectResult == nil or isEmpty(selectResult.text) then
+        if selectResult == nil or stringIsEmpty(selectResult.text) then
             return 
         end
         index = searchByText(history,selectResult.text)
@@ -160,7 +155,7 @@ local rightClickCallbackFn = function(index)
     end
 end
 -- 选取片段内容（按下快捷键时显示片段列表，点击选中的快捷键将自动粘贴）
-hs.hotkey.bind({ "ctrl", "cmd" }, "V", function ()
+hs.hotkey.bind(hyperCmd, "V", function ()
     mChooser = chooser.new(completionFn)
     :choices(history)
     :rightClickCallback(rightClickCallbackFn)
@@ -168,7 +163,7 @@ hs.hotkey.bind({ "ctrl", "cmd" }, "V", function ()
     :show()
 end)
 -- 添加片段（按下快捷键时做一个复制操作，并记录复制的内容到片段列表中）
-hs.hotkey.bind({"ctrl", "cmd"}, "A", function ()
+hs.hotkey.bind(hyperCmd, "X", function ()
     bindCopyKey()
     if hs.dialog.blockAlert("添加片段：‘|’为分隔符，建议按如下格式","内容|keyword|示例|说明","确定","取消","informational") == "确定" then
         addToHistory()

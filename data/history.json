@@ -1,5 +1,13 @@
 [
   {
+    "subText" : "chrome:\/\/inspect",
+    "text" : "chrome:\/\/inspect"
+  },
+  {
+    "subText" : "chrome:\/\/version\/",
+    "text" : "chrome:\/\/version\/"
+  },
+  {
     "subText" : "cmd|cat filename|显示或连接文件",
     "text" : "cat"
   },
@@ -126,6 +134,10 @@
   {
     "subText" : "cmd|vi ~\/.bash_profile|修改环境变量",
     "text" : "vi ~\/.bash_profile"
+  },
+  {
+    "subText" : "cmd|which python|查看指令的路径",
+    "text" : "which"
   },
   {
     "subText" : "code|java|author注释模板",
