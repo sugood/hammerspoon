@@ -96,8 +96,11 @@ function initData()
         return false
     end)
     mEventtap:start()
-    hs.timer.doEvery(1, listenerEvent)
+    hs.timer.doEvery(1, listenerEvent)  --有BUG,经常假死
     hs.keycodes.inputSourceChanged(function()
+        --resetCaffeineMeun()
+        --切换输入法后查询下监听状态
+        listenerEvent()
         -- 用于保存当前输入法
         local currentSourceID = hs.keycodes.currentSourceID()
 

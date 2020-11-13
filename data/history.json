@@ -24,6 +24,10 @@
     "text" : "chmod"
   },
   {
+    "subText" : "cmd|chmod u+x|chmod u+x filemae|设置运行权限",
+    "text" : "chmod u+x"
+  },
+  {
     "subText" : "cmd|chown newowner:newowner filename|改变文件或目录的属主",
     "text" : "chown"
   },

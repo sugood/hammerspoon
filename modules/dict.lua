@@ -115,7 +115,7 @@ function getYoudaoApi(q)
         else
             searchResult = {}
             results = hs.json.decode(body)
-            print('results:'..hs.inspect(results))
+            --print('results:'..hs.inspect(results))
             if(results['web']) then
                 --逆序插入
                 for i=#results['web'],1,-1 do
@@ -193,12 +193,20 @@ function initData()
         if hs.json.read(dictHistoryPath) ~= nil then
             searchResult = hs.json.read(dictHistoryPath)
         end
+        local num = hs.pasteboard.changeCount()
+        hs.eventtap.keyStroke({ "cmd" }, "C")
         mChooser = chooser.new(completionFn)
-            :choices(searchResult)
-            :queryChangedCallback(queryChangedCallbackFn)
-            :rightClickCallback(rightClickCallbackFn)
-            :searchSubText(true)
-            :show()
+                          :choices(searchResult)
+                          :queryChangedCallback(queryChangedCallbackFn)
+                          :rightClickCallback(rightClickCallbackFn)
+                          :searchSubText(true)
+                          :show()
+        local numAfter = hs.pasteboard.changeCount()
+        --如果复制成功则自动查询复制的内容，否者只打开翻译界面
+        if(numAfter > num) then
+            --粘贴选中的文本进行查询
+            hs.eventtap.keyStroke({ "cmd" }, "V")
+        end
     end)
 end
 

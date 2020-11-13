@@ -4,10 +4,27 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.1"
+version = "v0.1.2"
 configPath= "~/.hammerspoon/data/config.json"
+initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}
 colorDialog = hs.dialog.color
+
+--检查文件是否存在
+function checkFileExist(path)
+    local file = hs.fs.pathToAbsolute(path)
+    return file ~= nil
+end
+
+--复制文件
+function copyFile(source,destination)
+    print(destination)
+    sourcefile = io.open(source, "r")
+    destinationfile = io.open(destination, "w")
+    destinationfile:write(sourcefile:read("*all"))
+    sourcefile:close()
+    destinationfile:close()
+end
 
 function switchDict()
     if config[1].dictEngine == '百度' then
@@ -138,6 +155,15 @@ function initMenu()
 end
 
 function initData()
+    --第一次安装需要复制一个配置文件。以后更新则不会修改用户配置文件，防止被覆盖
+    if(checkFileExist(configPath) == false) then
+        print("初始化配置文件")
+        --获取绝对路径，io.open只支持绝对路径
+        local source = hs.fs.pathToAbsolute(initConfigPath)
+        local destination = string.gsub(source, "initConfig.json$", "config.json")
+        copyFile(source,destination)
+    end
+
     if hs.json.read(configPath) ~= nil then
         config = hs.json.read(configPath)
     end
@@ -223,4 +249,14 @@ function SubStringGetByteCount(str, index)
         byteCount = 4
     end
     return byteCount;
+end
+
+--判断是否复制成功
+function isCopySuccess()
+    local num = hs.pasteboard.changeCount()
+    print("复制前数量："..num)
+    hs.eventtap.keyStroke({ "cmd" }, "C")
+    local numAfter = hs.pasteboard.changeCount()
+    print("复制后数量："..numAfter)
+    return numAfter > num
 end
