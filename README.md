@@ -3,7 +3,7 @@
 ## 使用方法
 
 1. 安装 [Hammerspoon](http://www.hammerspoon.org/)
-2. `git clone https://github.com/greyby/hammerspoon.git ~/.hammerspoon`
+2. `git clone https://github.com/sugood/hammerspoon.git ~/.hammerspoon`
 3.  [详细说明](https://blog.csdn.net/sugoods/article/details/108984326)
 
 ## 快捷键图标
