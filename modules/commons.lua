@@ -147,7 +147,7 @@ function initMenu()
         ) end },
         { title = "-" },
         { title = "关于", fn = function()
-            if (hs.dialog.blockAlert("当前版本："..version,"整理了一些能够提高效率的脚本，打开主页查看详细说明","确定","取消","informational") == "确定") then
+            if (hs.dialog.blockAlert("当前版本："..version,"整理了一些能够提高效率的脚本，打开主页查看详细说明。","确定","取消","informational") == "确定") then
                 hs.urlevent.openURL("https://github.com/sugood/hammerspoon")
             end
         end },
