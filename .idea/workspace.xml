@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="495daa03-3ea5-4e8c-9013-c532511d508b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/data/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/.hammerspoon.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/data/config.json" afterPath="$PROJECT_DIR$/data/initConfig.json" />
-      <change beforePath="$PROJECT_DIR$/data/dictHistory.json" afterPath="$PROJECT_DIR$/data/dictHistory.json" />
-      <change beforePath="$PROJECT_DIR$/data/history.json" afterPath="$PROJECT_DIR$/data/history.json" />
-      <change beforePath="$PROJECT_DIR$/init.lua" afterPath="$PROJECT_DIR$/init.lua" />
-      <change beforePath="$PROJECT_DIR$/modules/caffeine.lua" afterPath="$PROJECT_DIR$/modules/caffeine.lua" />
-      <change beforePath="$PROJECT_DIR$/modules/commons.lua" afterPath="$PROJECT_DIR$/modules/commons.lua" />
-      <change beforePath="$PROJECT_DIR$/modules/dict.lua" afterPath="$PROJECT_DIR$/modules/dict.lua" />
-      <change beforePath="$PROJECT_DIR$/modules/inputstat.lua" afterPath="$PROJECT_DIR$/modules/inputstat.lua" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -427,12 +414,12 @@
       <workItem from="1603984898167" duration="190000" />
       <workItem from="1604403791408" duration="11438000" />
       <workItem from="1604544298691" duration="6187000" />
-      <workItem from="1605253935454" duration="990000" />
+      <workItem from="1605253935454" duration="1409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198319000" />
+    <option name="totallyTimeSpent" value="198738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-11" width="1920" height="1009" extended-state="0" />
@@ -451,7 +438,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />

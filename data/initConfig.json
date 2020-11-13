@@ -1,12 +1,12 @@
 [
   {
-    "youdaoAppid" : "",
-    "youdaoAppSecret" : "",
     "dictEngine" : "百度",
+    "youdaoAppid" : "",
     "isSyncTime" : "off",
     "rootPassword" : "",
     "caffeine" : "off",
     "baiduAppSecret" : "eI3BLUVURG5Zzb8Tdgdm",
+    "youdaoAppSecret" : "",
     "baiduAppid" : "20201017000591957"
   }
 ]
