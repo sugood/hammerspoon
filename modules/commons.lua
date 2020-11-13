@@ -19,8 +19,8 @@ end
 --复制文件
 function copyFile(source,destination)
     print(destination)
-    sourcefile = io.open(source, "r")
-    destinationfile = io.open(destination, "w")
+    local sourcefile = io.open(source, "r")
+    local destinationfile = io.open(destination, "w")
     destinationfile:write(sourcefile:read("*all"))
     sourcefile:close()
     destinationfile:close()
