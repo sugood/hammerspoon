@@ -18,12 +18,16 @@ local function generateHtml()
 <style>
 	body {  height: 100%; margin:0; font-family:"微软雅黑"; font-size:12px; }
     .pdiv { height: 85%; position: absolute; }
-    .title { height: auto; font-size:20px; text-align:center; margin-top: 5px; margin-bottom: 20px;}
+    .title { height: auto; font-size:20px; text-align:center; margin-top: 5px; margin-bottom: 20px; position:fixed; top:0;}
     .author { height: auto; width: 100%; font-size:12px; text-align:center; margin-top: 30px; margin-bottom: 20px;}
-	table { height: 100%; width:100%; border-collapse:collapse;  }
-	table .tdLeft { width:85%; text-align:left; padding-left: 10px;padding-right: 10px;}
-    table .tdmid { width:150px; text-align:center; margin: 0px; padding: 0px;}
-	table .tdRight { width:85%; padding-right: 30px;text-align:left; }
+	.tableContext{ height: 100%; width:100%; border-collapse:collapse;  margin-top: 60px}
+	.tableTop { height: 20px; width:100%; border-collapse:collapse;}
+	table .tdLeft { width:30%; text-align:left; padding-left: 10px;padding-right: 10px; ;}
+    table .tdmid { width:10px; text-align:center; margin: 0px; padding: 0px; margin-top: 100px;}
+	table .tdRight { width:85%; padding-right: 30px;text-align:left; margin-top: 100px;}
+	table .tdTopLeft { width:20%; height:10%; text-align:left; padding-left: 10px;padding-right: 10px;}
+	table .tdTopMid { width:200px; height:10%; text-align:center; margin: 0px; padding: 0px;}
+	table .tdTopRight { width:85%; height:10%; padding-right: 30px;text-align:right; }
 	table textarea { width:100%; height:100%; font-size:14px; padding-top: 10px; padding-left: 10px; outline: none; border-radius: 15px; border: 2px solid #8AC007; }
 	#container { width:100%; height:100%; font-size:14px; padding-top: 10px; padding-left: 10px; border-radius: 15px; border: 2px solid #8AC007;}
     pre{white-space:pre-wrap; white-space:-moz-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word; margin: 0px; padding: 5px;}
@@ -36,17 +40,29 @@ local function generateHtml()
 </head>
 <body>
     <div class="pdiv">
-        <div class="title" >Json格式化高亮展示工具</div>
-        <table style="table-layout:fixed">
+        <div class="title" >
+        Json格式化高亮展示工具
+          <table class="tableTop">
+            <tr>
+                <td class="tdTopLeft">
+                    <input style="width:auto; margin: 10px;" type="button" value="复制" onClick="copySource()">
+                </td>
+                <td class="tdTopMid" valign="top"><input style="width:100%;" type="button" value="格式化JSON >>" onClick="showJson()"></td>
+                <td class="tdTopRight">
+                    <input style="width:auto; margin: 10px;" type="button" value="复制" onClick="copyResult()">
+                </td>
+            </tr>
+          </table>
+        </div>
+
+        <table class="tableContext" style="table-layout:fixed">
             <tr>
                 <!-- <td class="tdLeft" nowrap>请输入要展示的Json：</td> -->
                 <td class="tdLeft">
-                    <input style="width:auto; margin: 10px;" type="button" value="复制" onClick="copySource()">
                     <textarea name = "jsonContent" id="jsonContent" ></textarea>
                 </td>
-                <td class="tdmid"><input style="width:80%;" type="button" value="格式化JSON >>" onClick="showJson()"></td>
+                <td class="tdmid" valign="top"></td>
                 <td class="tdRight">
-                    <input style="width:auto; margin: 10px;" type="button" value="复制" onClick="copyResult()">
                     <pre id="container"></pre>
                 </td>
             </tr>
@@ -174,12 +190,14 @@ function init()
     sheetView:windowStyle("utility")
     sheetView:titleVisibility("hidden")
     sheetView:allowGestures(true)
-    sheetView:allowNewWindows(false)
+    sheetView:allowNewWindows(true)
     sheetView:allowTextEntry(true)
     sheetView:closeOnEscape(true)
     sheetView:bringToFront(false)
     sheetView:darkMode(true)
     sheetView:reload(false)
+    sheetView:shadow(true)
+    sheetView:alpha(1)
     sheetView:level(hs.drawing.windowLevels.mainMenu)
 end
 
@@ -188,15 +206,17 @@ end
 --- Show current application's keybindings in a view.
 function show(time)
     local webcontent = generateHtml()
-    sheetView:html(webcontent, "http://localhost")
+    -- sheetView:html(webcontent, "http://localhost")
+    -- sheetView:url("https://www.jsonin.com/")
+    sheetView:url("https://c.runoob.com/front-end/53/")
     sheetView:show(time)
 end
 
 function toggle()
     if sheetView and sheetView:hswindow() and sheetView:hswindow():isVisible() then
-        hide(2)
+        hide(1)
     else
-        show(2)
+        show(1)
     end
 end
 

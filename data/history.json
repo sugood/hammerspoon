@@ -120,7 +120,7 @@
     "text" : "source ~\/.bash_profile"
   },
   {
-    "subText" : "cmd|ssh username@ip|ssh远程登录",
+    "subText" : "cmd|ssh -p username@ip|ssh远程登录",
     "text" : "ssh"
   },
   {
@@ -148,8 +148,28 @@
     "text" : "\/**   \n* @Title: ${file_name} \n* @Package ${package_name} \n* @Description: ${todo}(用一句话描述该文件做什么) \n* @author sugood\n* @date ${date} ${time} \n* @version V1.0   \n*\/"
   },
   {
+    "subText" : "flutter build apk --no-shrink",
+    "text" : "flutter build apk --no-shrink"
+  },
+  {
+    "subText" : "flutter clean",
+    "text" : "flutter clean"
+  },
+  {
+    "subText" : "flutter packages pub run build_runner build --delete-conflicting-outputs",
+    "text" : "flutter packages pub run build_runner build --delete-conflicting-outputs"
+  },
+  {
     "subText" : "ins|brew install node|安装node",
     "text" : "brew install node"
+  },
+  {
+    "subText" : "keytool -genkey -v -keystore myKey.jks -keyalg RSA -keysize 2048 -validity 36500 -alias myAlias",
+    "text" : "keytool -genkey -v -keystore myKey.jks -keyalg RSA -keysize 2048 -validity 36500 -alias myAlias"
+  },
+  {
+    "subText" : "keytool|keytool -list -v -keystore xx.jks|生成kjs",
+    "text" : "keytool -list -v -keystore"
   },
   {
     "subText" : "key|Command+Option+C|复制路径",
@@ -162,5 +182,25 @@
   {
     "subText" : "key|Command+Shift+.|显示隐藏文件",
     "text" : "Command+Shift+."
+  },
+  {
+    "subText" : "md | link",
+    "text" : "[超链接显示名](超链接地址 \"超链接title\")"
+  },
+  {
+    "subText" : "md | more ",
+    "text" : "<!-- more -->"
+  },
+  {
+    "subText" : "md | system info",
+    "text" : "- System version: MacOS 12\n- Flutter version: 1.22.5\n- Dart version: 2.10.4\n- Android Studio version: 4.1.1"
+  },
+  {
+    "subText" : "sudo smartctl -H \/dev\/sda | 硬盘是否健康",
+    "text" : "sudo smartctl -H \/dev\/sda"
+  },
+  {
+    "subText" : "sudo smartctl -i \/dev\/sda | 硬盘是否支持健康检查",
+    "text" : "sudo smartctl -i \/dev\/sda"
   }
 ]

@@ -71,7 +71,7 @@ function initData()
             else
                 hs.hid.led.set('caps',false)
                 hs.alert.closeAll(0)
-                hs.alert.show("键盘小写 🔤- OFF")
+                hs.alert.show("键盘小写 🔤- OFF", 0.5)
                 if(isChinese()) then
                     if(reverse) then
                         macMenubar:setIcon(imgInputCn)
@@ -86,7 +86,7 @@ function initData()
             if hs.hid.capslock.get() then
                 hs.hid.led.set('caps',true)
                 hs.alert.closeAll(0)
-                hs.alert.show("键盘大写 🅰️- ON")
+                hs.alert.show("键盘大写 🅰️- ON", 0.5)
                 macMenubar:setIcon(imgInputU)
             else
                 --print("小写2")

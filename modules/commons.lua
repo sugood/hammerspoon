@@ -4,7 +4,7 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.2"
+version = "v0.1.3"
 configPath= "~/.hammerspoon/data/config.json"
 initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}
@@ -124,15 +124,7 @@ function initMenu()
         end },
         { title = "-" },
         { title = "屏幕取色", fn = function()
-            hs.openConsole(true)
-            colorDialog.show()
-            colorDialog.mode("RGB")
-            colorDialog.callback(function(a,b)
-                if b then
-                    hs.closeConsole()
-                end
-            end)
-            hs.closeConsole()
+            openColorDilog()
         end },
         { title = "-" },
         { title = "咖啡因：" .. config[1].caffeine, fn = function()
@@ -170,7 +162,7 @@ function initData()
     initMenu()
     -- 修改全局alert样式
     hs.alert.defaultStyle.strokeColor =  {white = 1, alpha = 0}
-    hs.alert.defaultStyle.fillColor =  {white = 0.05, alpha = 0.75}
+    hs.alert.defaultStyle.fillColor =  {white = 0.05, alpha = 0.50}
     hs.alert.defaultStyle.radius =  10
     --清空打印信息
     console.clearConsole()
@@ -260,3 +252,27 @@ function isCopySuccess()
     print("复制后数量："..numAfter)
     return numAfter > num
 end
+
+--打开取色器
+function openColorDilog()
+    hs.openConsole(true)
+    colorDialog.show()
+    colorDialog.mode("RGB")
+    colorDialog.callback(function(a,b)
+        if b then
+            hs.closeConsole()
+        end
+    end)
+    hs.closeConsole()
+end
+
+
+--设置取色器快捷键
+hs.hotkey.bind(hyperCmd, "P", function ()
+    openColorDilog()
+end)
+
+--设置咖啡因快捷键
+hs.hotkey.bind(hyperCmd, "C", function ()
+    switchCaffeine()
+end)
