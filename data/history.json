@@ -48,6 +48,10 @@
     "text" : "diff"
   },
   {
+    "subText" : "cmd|journalctl -f -u xx.service -n1000|显示日志",
+    "text" : "journalctl -f -u xx.service -n1000"
+  },
+  {
     "subText" : "cmd|kill -9 pid|终止进程",
     "text" : "kill"
   },
@@ -146,6 +150,26 @@
   {
     "subText" : "code|java|author注释模板",
     "text" : "\/**   \n* @Title: ${file_name} \n* @Package ${package_name} \n* @Description: ${todo}(用一句话描述该文件做什么) \n* @author sugood\n* @date ${date} ${time} \n* @version V1.0   \n*\/"
+  },
+  {
+    "subText" : "flutter build apk --release",
+    "text" : "flutter build apk --release"
+  },
+  {
+    "subText" : "flutter build ios --release",
+    "text" : "flutter build ios --release"
+  },
+  {
+    "subText" : "flutter clean",
+    "text" : "flutter clean"
+  },
+  {
+    "subText" : "flutter doctor",
+    "text" : "flutter doctor"
+  },
+  {
+    "subText" : "flutter run --debug",
+    "text" : "flutter run --debug"
   },
   {
     "subText" : "ins|brew install node|安装node",

@@ -4,7 +4,7 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.2"
+version = "v0.1.3"
 configPath= "~/.hammerspoon/data/config.json"
 initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}
@@ -124,15 +124,7 @@ function initMenu()
         end },
         { title = "-" },
         { title = "屏幕取色", fn = function()
-            hs.openConsole(true)
-            colorDialog.show()
-            colorDialog.mode("RGB")
-            colorDialog.callback(function(a,b)
-                if b then
-                    hs.closeConsole()
-                end
-            end)
-            hs.closeConsole()
+            openColorDialog()
         end },
         { title = "-" },
         { title = "咖啡因：" .. config[1].caffeine, fn = function()
@@ -260,3 +252,25 @@ function isCopySuccess()
     print("复制后数量："..numAfter)
     return numAfter > num
 end
+
+function openColorDialog()
+    hs.openConsole(true)
+    colorDialog.show()
+    colorDialog.mode("RGB")
+    colorDialog.callback(function(a,b)
+        if b then
+            hs.closeConsole()
+        end
+    end)
+    hs.closeConsole()
+end
+
+--设置颜色拾取快键键
+hs.hotkey.bind(hyperCmd, "P", function ()
+    openColorDialog()
+end)
+
+--设置颜色拾取快键键
+hs.hotkey.bind(hyperCmd, "C", function ()
+    switchCaffeine()
+end)
