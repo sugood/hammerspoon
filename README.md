@@ -87,6 +87,8 @@ https://github.com/greyby/hammerspoon
 
 * <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>G</kbd> JSON格式化
 
+自动复制选中的文本
+
 ### 自动同步时间
 
 * <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>T</kbd> 自动同步时间
