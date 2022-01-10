@@ -100,9 +100,13 @@ Support baidu and youdao translation API. Baidu Translation can be used directly
 
 ###  Screen color selection function
 
+* <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>P</kbd> Screen color selection function
+
 Click the screen color in the menu bar, click the color picker after the screen color picker interface appears, and the color value at the position of the mouse on the screen can be obtained
 
 ### caffeine
+
+* <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>C</kbd> caffeine
 
 On the menu bar, click caffeine to turn on the system's never sleep feature, and then click again to turn it off
 

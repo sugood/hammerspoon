@@ -124,7 +124,7 @@ function initMenu()
         end },
         { title = "-" },
         { title = "屏幕取色", fn = function()
-            openColorDilog()
+            openColorDialog()
         end },
         { title = "-" },
         { title = "咖啡因：" .. config[1].caffeine, fn = function()
@@ -253,8 +253,7 @@ function isCopySuccess()
     return numAfter > num
 end
 
---打开取色器
-function openColorDilog()
+function openColorDialog()
     hs.openConsole(true)
     colorDialog.show()
     colorDialog.mode("RGB")
@@ -266,13 +265,12 @@ function openColorDilog()
     hs.closeConsole()
 end
 
-
---设置取色器快捷键
+--设置颜色拾取快键键
 hs.hotkey.bind(hyperCmd, "P", function ()
-    openColorDilog()
+    openColorDialog()
 end)
 
---设置咖啡因快捷键
+--设置颜色拾取快键键
 hs.hotkey.bind(hyperCmd, "C", function ()
     switchCaffeine()
 end)
