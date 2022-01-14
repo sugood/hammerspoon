@@ -177,14 +177,15 @@ end
 
 function getRootVolumes()
     local vols = hs.fs.volume.allVolumes()
-    local msg = ""
     for key, vol in pairs(vols) do
         local size = vol.NSURLVolumeTotalCapacityKey
         local free = vol.NSURLVolumeAvailableCapacityKey
         local usedSSD = (1-free/size) * 100
-        -- msg = msg .. (1-free/size) * 100
-        return formatPercent(usedSSD)
+        if ( string.find(vol.NSURLVolumeNameKey,'Macintosh') ~= nil) then
+            return formatPercent(usedSSD)
+        end
     end
+    return ' 0%'
 end
 
 function formatPercent(percent)
@@ -201,7 +202,6 @@ end
 
 function resetSysInfoMeun()
     if(config ~=nil and config[1].showSysInfo == 'on' and menuBarItem:isInMenuBar() == false) then
-        print("重置状态栏")
         menuBarItem:delete()
         menuBarItem= hs.menubar.new()
         -- menuBarItem:setTitle("")
@@ -215,7 +215,7 @@ function resetSysInfoMeun()
             obj.timer = nil
         end
         -- 第三个参数表示当发生异常情况时，定时器是否继续执行下去
-        obj.timer = hs.timer.doEvery(2, scan):start()
+        obj.timer = hs.timer.doEvery(3, scan):start()
     else
         menuBarItem:delete()
     end
