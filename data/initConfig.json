@@ -5,6 +5,7 @@
     "isSyncTime" : "off",
     "rootPassword" : "",
     "caffeine" : "off",
+    "showSysInfo" : "on",
     "baiduAppSecret" : "eI3BLUVURG5Zzb8Tdgdm",
     "youdaoAppSecret" : "",
     "baiduAppid" : "20201017000591957"

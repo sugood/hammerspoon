@@ -8,14 +8,14 @@ local fnutils = require "hs.fnutils"
 grid.setMargins({0, 0})
 
 applist = {
-    {shortcut = 'I',appname = 'IntelliJ IDEA'},
-    {shortcut = 'T',appname = 'Terminal'},
-    {shortcut = 'Z',appname = 'Calculator'},
-    {shortcut = 'D',appname = 'Finder'},
-    {shortcut = 'Q',appname = 'Activity Monitor'},
-    {shortcut = 'S',appname = 'System Preferences'},
-    {shortcut = 'C',appname = 'Google Chrome'},
     {shortcut = 'A',appname = 'Launchpad'},
+    {shortcut = 'C',appname = 'Google Chrome'},
+    {shortcut = 'D',appname = 'Disk Utility'},
+    {shortcut = 'E',appname = 'Finder'},
+    {shortcut = 'Q',appname = 'Activity Monitor'},
+    {shortcut = 'T',appname = 'Terminal'},
+    {shortcut = 'S',appname = 'System Preferences'},
+    {shortcut = 'Z',appname = 'Calculator'},
 }
 
 fnutils.each(applist, function(entry)

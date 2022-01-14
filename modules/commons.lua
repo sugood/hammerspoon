@@ -4,7 +4,7 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.3"
+version = "v0.1.4"
 configPath= "~/.hammerspoon/data/config.json"
 initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}
@@ -59,6 +59,16 @@ function switchCaffeine()
         config[1].caffeine = 'off'
     else
         config[1].caffeine = 'on'
+    end
+    hs.json.write(config,configPath, true, true)
+    hs.reload()
+end
+
+function switchSysInfo()
+    if config[1].showSysInfo == 'on' then
+        config[1].showSysInfo = 'off'
+    else
+        config[1].showSysInfo = 'on'
     end
     hs.json.write(config,configPath, true, true)
     hs.reload()
@@ -129,6 +139,10 @@ function initMenu()
         { title = "-" },
         { title = "咖啡因：" .. config[1].caffeine, fn = function()
             switchCaffeine()
+        end },
+        { title = "-" },
+        { title = "系统状态：" .. config[1].showSysInfo, fn = function()
+            switchSysInfo()
         end },
         { title = "-" },
         { title = "打开键盘偏好设置", fn = function() hs.osascript.applescript([[
