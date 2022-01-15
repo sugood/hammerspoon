@@ -9,9 +9,10 @@ grid.setMargins({0, 0})
 
 applist = {
     {shortcut = 'A',appname = 'Launchpad'},
-    {shortcut = 'C',appname = 'Google Chrome'},
+    {shortcut = 'C',appname = 'calendar'},
     {shortcut = 'D',appname = 'Disk Utility'},
     {shortcut = 'E',appname = 'Finder'},
+    {shortcut = 'G',appname = 'Google Chrome'},
     {shortcut = 'Q',appname = 'Activity Monitor'},
     {shortcut = 'T',appname = 'Terminal'},
     {shortcut = 'S',appname = 'System Preferences'},

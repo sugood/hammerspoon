@@ -35,25 +35,41 @@ function init()
                 hs.pasteboard.setContents(mac)
             end
         })
-        table.insert(menuData, {
-            title = 'Activity Monitor',
-            tooltip = 'Show Activity Monitor',
-            fn = function()
-                bindActivityMonitorKey()
-            end
-        })
-        table.insert(menuData, {
-            title = 'Disk Utility',
-            tooltip = 'Show Disk Utility',
-            fn = function()
-                bindDiskKey()
-            end
-        })
-
         obj.last_down = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $7}\'')
         obj.last_up = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $10}\'')
+    else
+        obj.last_down =  0
+        obj.last_down =  0
     end
-
+    local date=os.date("%Y-%m-%d %a");
+    table.insert(menuData, {
+        title = 'Date: '..date,
+        tooltip = 'Copy Now DateTime',
+        fn = function()
+            hs.pasteboard.setContents(os.date("%Y-%m-%d %H:%M:%S"))
+        end
+    })
+    table.insert(menuData, {
+        title = '打开:监  视  器    (⇧⌃A)',
+        tooltip = 'Show Activity Monitor',
+        fn = function()
+            bindActivityMonitorKey()
+        end
+    })
+    table.insert(menuData, {
+        title = '打开:磁盘工具    (⇧⌃D)',
+        tooltip = 'Show Disk Utility',
+        fn = function()
+            bindDiskKey()
+        end
+    })
+    table.insert(menuData, {
+        title = '打开:系统日历    (⇧⌃C)',
+        tooltip = 'Show calendar',
+        fn = function()
+            bindCalendarKey()
+        end
+    })
     menubaritem:setMenu(menuData)
 end
 
@@ -61,54 +77,57 @@ function scan()
     if interface then
         obj.current_down = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $7}\'')
         obj.current_up = hs.execute('netstat -ibn | grep -e ' .. interface .. ' -m 1 | awk \'{print $10}\'')
-
-        obj.cpu_used = getCpu()
-        obj.disk_used = getRootVolumes()
-        obj.mem_used = getVmStats()
-        obj.down_bytes = obj.current_down - obj.last_down
-        obj.up_bytes = obj.current_up - obj.last_up
-
-        obj.down_speed = format_speed(obj.down_bytes)
-        obj.up_speed = format_speed(obj.up_bytes)
-
-        obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n'..'▼ ' .. obj.down_speed , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_disk_text = hs.styledtext.new(obj.disk_used ..'\n'.. 'SSD ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_mem_text = hs.styledtext.new(obj.mem_used ..'\n'.. 'MEM ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-        obj.display_cpu_text = hs.styledtext.new(obj.cpu_used ..'\n'.. 'CPU ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
-
-        obj.last_down = obj.current_down
-        obj.last_up = obj.current_up
-
-        local canvas = hs.canvas.new{x = 0, y = 0, h = 24, w = 30+30+30+60}
-        -- canvas[1] = {type = 'text', text = obj.display_text}
-        canvas:appendElements({
-            type = "text",
-            text = obj.display_cpu_text,
-            -- withShadow = true,
-            trackMouseEnterExit = true,
-          },{
-            type = "text",
-            text = obj.display_disk_text,
-            -- withShadow = true,
-            trackMouseEnterExit = true,
-            frame = { x = 30, y = "0", h = "1", w = "1", }
-          },{
-            type = "text",
-            text = obj.display_mem_text,
-            -- withShadow = true,
-            trackMouseEnterExit = true,
-            frame = { x = 60, y = "0", h = "1", w = "1", }
-          },{
-            type = "text",
-            text = obj.display_text,
-            -- withShadow = true,
-            trackMouseEnterExit = true,
-            frame = { x = 90, y = "0", h = "1", w = "1", }
-          })
-        menubaritem:setIcon(canvas:imageFromCanvas())
-        canvas:delete()
-        canvas = nil
+    else
+        obj.current_down  = 0
+        obj.current_up = 0
     end
+
+    obj.cpu_used = getCpu()
+    obj.disk_used = getRootVolumes()
+    obj.mem_used = getVmStats()
+    obj.down_bytes = obj.current_down - obj.last_down
+    obj.up_bytes = obj.current_up - obj.last_up
+
+    obj.down_speed = format_speed(obj.down_bytes)
+    obj.up_speed = format_speed(obj.up_bytes)
+
+    obj.display_text = hs.styledtext.new('▲ ' .. obj.up_speed .. '\n'..'▼ ' .. obj.down_speed , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
+    obj.display_disk_text = hs.styledtext.new(obj.disk_used ..'\n'.. 'SSD ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
+    obj.display_mem_text = hs.styledtext.new(obj.mem_used ..'\n'.. 'MEM ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
+    obj.display_cpu_text = hs.styledtext.new(obj.cpu_used ..'\n'.. 'CPU ' , {font={size=9}, color={hex='#FFFFFF'}, paragraphStyle={alignment="left", maximumLineHeight=18}})
+
+    obj.last_down = obj.current_down
+    obj.last_up = obj.current_up
+
+    local canvas = hs.canvas.new{x = 0, y = 0, h = 24, w = 30+30+30+60}
+    -- canvas[1] = {type = 'text', text = obj.display_text}
+    canvas:appendElements({
+        type = "text",
+        text = obj.display_cpu_text,
+        -- withShadow = true,
+        trackMouseEnterExit = true,
+        },{
+        type = "text",
+        text = obj.display_disk_text,
+        -- withShadow = true,
+        trackMouseEnterExit = true,
+        frame = { x = 30, y = "0", h = "1", w = "1", }
+        },{
+        type = "text",
+        text = obj.display_mem_text,
+        -- withShadow = true,
+        trackMouseEnterExit = true,
+        frame = { x = 60, y = "0", h = "1", w = "1", }
+        },{
+        type = "text",
+        text = obj.display_text,
+        -- withShadow = true,
+        trackMouseEnterExit = true,
+        frame = { x = 90, y = "0", h = "1", w = "1", }
+        })
+    menubaritem:setIcon(canvas:imageFromCanvas())
+    canvas:delete()
+    canvas = nil
 end
 
 function format_speed(bytes)
@@ -127,24 +146,6 @@ function format_speed(bytes)
         end
     end
 end
-
--- function showAllVolumes()
---     local vols = hs.fs.volume.allVolumes()
---     local msg = "volumes: \n"
---     for key, vol in pairs(vols) do
---         local size = vol.NSURLVolumeTotalCapacityKey
---         local free = vol.NSURLVolumeAvailableCapacityKey
---         msg = msg .. key .. 1-free/size.."\n"
---     end
---     return hs.alert(
---         msg,
---         {
---             ["textSize"] = 12
---         },
---         hs.screen.mainScreen(),
---         12
---     )
--- end
 
 function getCpu()
     local data = hs.host.cpuUsage()
@@ -200,46 +201,26 @@ function formatPercent(percent)
     end
 end
 
-function resetSysInfoMeun()
-    if(config ~=nil and config[1].showSysInfo == 'on' and menuBarItem:isInMenuBar() == false) then
-        menuBarItem:delete()
-        menuBarItem= hs.menubar.new()
-        -- menuBarItem:setTitle("")
-        -- menuBarItem:setIcon("~/.hammerspoon/icon/caffeine-on.pdf")
-        --hs.caffeinate.set("displayIdle", true)
-        -- queryCpu()
-        init()
-        scan()
-        if obj.timer then
-            obj.timer:stop()
-            obj.timer = nil
-        end
-        -- 第三个参数表示当发生异常情况时，定时器是否继续执行下去
-        obj.timer = hs.timer.doEvery(3, scan):start()
-    else
-        menuBarItem:delete()
-    end
-end
-
 local setSysInfo= function()
-    if config ~=nil and config[1].showSysInfo == 'on' and menuBarItem == nil then
-        print("设置状态栏:系统信息")
-        menuBarItem= hs.menubar.new()
-        
-        -- menuBarItem:setTitle("")
-        -- menuBarItem:setIcon("~/.hammerspoon/icon/caffeine-on.pdf")
-        -- queryCpu()
+    if config ~=nil and config[1].showSysInfo == 'on' then
+        if(menuBarItem ~= nil and menuBarItem:isInMenuBar() == false) then
+            return
+        end
+        if (menuBarItem == nil) then
+            print("设置状态栏:系统信息")
+            menuBarItem= hs.menubar.new()
+        elseif (menuBarItem:isInMenuBar() == false) then
+            menuBarItem:delete()
+            menuBarItem= hs.menubar.new()
+        end
         init()
         scan()
         if obj.timer then
             obj.timer:stop()
             obj.timer = nil
         end
-        -- 第三个参数表示当发生异常情况时，定时器是否继续执行下去
+        -- 三秒刷新一次
         obj.timer = hs.timer.doEvery(3, scan):start()
-        
-    -- else
-    --     hs.caffeinate.set("displayIdle", false)
     end
 end
 
@@ -247,8 +228,7 @@ end
 function initData()
     setSysInfo()
     --监听系统信息开关的状态,判断是否要重置
-    hs.timer.doEvery(1, resetSysInfoMeun)
-    -- showAllVolumes()
+    hs.timer.doEvery(1, setSysInfo)
 end
 
 -- 初始化
@@ -261,4 +241,8 @@ end
 -- 按下添加快捷键时映射到磁盘工具快捷键
 function bindDiskKey()
     hs.eventtap.keyStroke({ "ctrl", "shift"}, "D")
+end
+-- 按下添加快捷键时映射到日历快捷键
+function bindCalendarKey()
+    hs.eventtap.keyStroke({ "ctrl", "shift"}, "C")
 end
