@@ -48,8 +48,7 @@
 ## 使用方法
 ### 如何安装
 1. 下载安装 [Hammerspoon](https://github.com/Hammerspoon/hammerspoon/releases)。确保是在0.9.81 版本及以上，github速度有点慢请耐心等待~
-2. 如果已经存在~/.hammerspoon文件夹请先删除。然后终端中执行指令：
-`git clone https://github.com/sugood/hammerspoon.git ~/.hammerspoon`
+2. 如果已经存在~/.hammerspoon文件夹请先删除。然后克隆当前项目到~/.hammerspoon中
 3. 运行Hammerspoon，提示需要辅助功能权限，请允许。
 4. 如果需要开机启动，请在设置界面勾选 Launch Hammerspoon at login选项进行设置
 
@@ -79,8 +78,11 @@ git pull origin master
 ## 功能
 ### 状态栏显示输入法状态
 1. 界面如下
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201025120715361.gif#pic_center)
+
 2.功能说明
+
 可显示大小写状态，输入法状态，中英文状态。目前仅测试过搜狗输入法
 
 ### 片段和备忘录
@@ -93,8 +95,12 @@ git pull origin master
 * <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>G</kbd> JSON格式化
 
 #### 界面与功能说明
-1. 界面如下![paste image](http://imgs.sugood.xyz/1642388815070fcmlt9bk.png?imageslim)
+1. 界面如下
+
+![paste image](http://imgs.sugood.xyz/1642388815070fcmlt9bk.png?imageslim)
+
 *ps:第一次使用请先右键左边的窗口，将substitutions -> smart Quotas的勾选去掉。这个功能会自动补全一些字符，如果有中文会出现错误，所以要关掉。*
+
 2. 功能入下
  - 实现了json格式化功能
  - json代码高亮
@@ -106,9 +112,13 @@ git pull origin master
 ### 自动同步时间
 * <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>T</kbd> 自动同步时间
 #### 界面与功能说明
-1. 界面如下![paste image](http://imgs.sugood.xyz/16423890298911k5gbron.png?imageslim)
+1. 界面如下
+
+![paste image](http://imgs.sugood.xyz/16423890298911k5gbron.png?imageslim)
+
 *ps:该功能默认是关闭的，如需使用先给mac安装expect，并在上图的位置输入开机密码。一般情况下mac的时间同步都是没问题的。但是像我的黑苹果睡眠唤醒后时间不准的，已确保Bios电池没问题，也重新设置了系统的时间同步服务器都没解决。还有些人的电脑用了一段时间后时间就会不准的。可以尝试使用这个功能*
-2. 功能说明
+
+1. 功能说明
 - 使用国内阿里的时间同步服务器 ntp.aliyun.com 。稳定性好
 - 在系统或屏幕唤醒时才同步一次。不使用定时任务，而是监听系统状态来进行时间同步。所以，不用担心一直消耗系统资源。
 
