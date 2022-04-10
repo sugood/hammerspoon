@@ -24,6 +24,7 @@
 <!-- more -->
 
 # 此脚本的优势
+
 本脚本相当于整合了多个APP的功能。对比如下
 
 
@@ -33,7 +34,7 @@
 
 - 对比各种JSON格式化网页，本工具能通过快键键便捷打开界面，而且不用拉起任何浏览器。
 
-- 与各种翻译APP对比，本工具的功能更加纯粹，而且通过快捷键能快速的进行翻译
+- 与各种翻译APP对比，本工具的功能更加纯粹，而且通过快捷键能快速的进行翻译,右键对译文或者原文进行朗读
 
 - 对比通过系统电池设置屏幕常亮需要麻烦的操作，本工具的咖啡因功能，可以一键切换屏幕常亮和普通模式
 
@@ -125,6 +126,10 @@ git pull origin master
 ### 翻译
 * <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>F</kbd> 翻译
 
+1. 功能说明
+- 默认使用百度翻译，可设置自己的百度或有道API进行翻译
+- 使用MacOS TTS功能，对译文或者原文进行朗读
+
 #### 界面与功能说明
 界面
 
@@ -143,6 +148,7 @@ git pull origin master
 - 可保存数据到本地，下次打开还能显示上次的结果
 - 如果翻译的文字很长。可以点击右键查看详情或者是进入网页查看详情
 ### 屏幕取色功能
+* <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>P</kbd> 打开取色器
 1. 界面如下
 
 ![paste image](http://imgs.sugood.xyz/1642389183172fq3h28sb.png?imageslim)
@@ -151,6 +157,9 @@ git pull origin master
 菜单栏点击屏幕取色，出现取色界面后点击颜色拾取器，就可以获取当前屏幕鼠标所在位置的颜色值
 
 ### 咖啡因
+
+* <kbd>⌥</kbd><kbd>⌘</kbd> + <kbd>S</kbd> 咖啡因开关
+
 1. 界面如下
 
 ![paste image](http://imgs.sugood.xyz/1642389211527sub01we5.png?imageslim)
@@ -227,7 +236,3 @@ git pull origin master
 * <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>T</kbd> `Terminal`
 * <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>S</kbd> `System Preferences`
 * <kbd>⌃</kbd><kbd>⇧</kbd> + <kbd>Z</kbd> `Calculator`
-
-
-# 总结
-状态栏的图标终于不是满满的了。开心:-)

@@ -67,9 +67,22 @@ local rightClickCallbackFn = function(index)
             { title = "查看网页", fn = function()
                 sheetView:url(selectResult.webUrl):show()
             end },
+            { title = "-" },
+            { title = "朗读译文", fn = function()
+                speak(selectResult.text)
+            end },
+            { title = "朗读原文", fn = function()
+                speak(selectResult.subText)
+            end },
         })
         menubar:popupMenu(hs.mouse.getAbsolutePosition(), true)
     end
+end
+
+-- 系统发音
+function speak(str)
+    speaker = hs.speech.new()
+    speaker:speak(str)
 end
 
 function getBaiduApi(q)
