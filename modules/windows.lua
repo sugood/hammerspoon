@@ -131,7 +131,9 @@ function focusScreen(screen)
       window.orderedWindows(),
       fnutils.partial(isInScreen, screen))
   local windowToFocus = #windows > 0 and windows[1] or window.desktop()
-  windowToFocus:focus()
+  if(windowToFocus ~=nil ) then
+    windowToFocus:focus()
+  end
 
   -- move cursor to center of screen
   local pt = geometry.rectMidPoint(screen:fullFrame())

@@ -156,21 +156,31 @@ end
 function getVmStats()
 
     local vmStats = hs.host.vmStat()
-    --1024^2
-    local megDiv = 1048576
-    local megMulti = vmStats.pageSize / megDiv
+    -- --1024^2
+    -- local megDiv = 1048576
+    -- local megMulti = vmStats.pageSize / megDiv
 
-    local totalMegs = vmStats.memSize / megDiv  --总内存
-    local megsCached = vmStats.fileBackedPages * megMulti   --缓存内存
-    local freeMegs = vmStats.pagesFree * megMulti   --空闲内存
+    -- local totalMegs = vmStats.memSize / megDiv  --总内存
+    -- local megsCached = vmStats.fileBackedPages * megMulti   --缓存内存
+    -- local freeMegs = vmStats.pagesFree * megMulti   --空闲内存
 
-    --第一种方法使用 APP内存+联动内存+被压缩内存 = 已使用内存
-    -- local megsUsed =  vmStats.pagesWiredDown * megMulti -- 联动内存
-    -- megsUsed = megsUsed + vmStats.pagesUsedByVMCompressor * megMulti -- 被压缩内存
-    -- megsUsed = megsUsed + (vmStats.pagesActive +vmStats.pagesSpeculative)* megMulti  -- APP内存
+    -- --第一种方法使用 APP内存+联动内存+被压缩内存 = 已使用内存
+    -- --local megsUsed =  vmStats.pagesWiredDown * megMulti -- 联动内存
+    -- --megsUsed = megsUsed + vmStats.pagesUsedByVMCompressor * megMulti -- 被压缩内存
+    -- --megsUsed = megsUsed + (vmStats.pagesActive +vmStats.pagesSpeculative)* megMulti  -- APP内存
 
-    --第二种方法使用 总内存-缓存内存-空闲内存 = 已使用内存
-    local megsUsed = totalMegs - megsCached - freeMegs
+    -- --第二种方法使用 总内存-缓存内存-空闲内存 = 已使用内存
+    -- local megsUsed = totalMegs - megsCached - freeMegs
+
+    --第三种方法，由于部分设备pageSize获取不正确，所以只能通过已使用页数+缓存页数+空闲页数计算总页数
+    local megsUsed =  vmStats.pagesWiredDown -- 联动内存
+    megsUsed = megsUsed + vmStats.pagesUsedByVMCompressor -- 被压缩内存
+    megsUsed = megsUsed + vmStats.pagesActive +vmStats.pagesSpeculative -- APP内存
+
+    local megsCached = vmStats.fileBackedPages   --缓存内存
+    local freeMegs = vmStats.pagesFree   --空闲内存
+
+    local totalMegs = megsUsed + megsCached + freeMegs
 
     local usedMem = megsUsed/totalMegs * 100
     return formatPercent(usedMem)

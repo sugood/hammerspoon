@@ -6,13 +6,6 @@
 --
 --
 
---- KSheet:hide()
---- Method
---- Hide the cheatsheet view.
-function hide(time)
-    sheetView:hide(time)
-end
-
 function init()
     local cscreen = hs.screen.mainScreen()
     local cres = cscreen:fullFrame()
@@ -20,9 +13,9 @@ function init()
         x = cres.x+cres.w*0.15/2,
         y = cres.y+cres.h*0.25/2,
         w = cres.w*0.85,
-        h = cres.h*0.75
+        h = cres.h*1.0
     })
-    sheetView:windowTitle("CheatSheets")
+    sheetView:windowTitle("JsonFormat")
     sheetView:windowStyle("utility")
     sheetView:titleVisibility("hidden")
     sheetView:allowGestures(true)
@@ -35,17 +28,25 @@ function init()
     sheetView:shadow(true)
     sheetView:alpha(1)
     sheetView:level(hs.drawing.windowLevels.mainMenu)
+    sheetView:url("https://i.sugood.xyz/pages/jsonweb.html")
+end
+
+--- KSheet:hide()
+--- Method
+--- Hide the JsonFormat view.
+function hide(time)
+    sheetView:hide(time)
 end
 
 --- KSheet:show()
 --- Method
---- Show current application's keybindings in a view.
+--- Show JsonFormat.
 function show(time)
     bindCopyKey()
     local str = hs.pasteboard.getContents()
     -- local webcontent = generateHtml()
     -- sheetView:html(webcontent, "http://localhost")
-    sheetView:url("https://i.sugood.xyz/pages/jsonweb.html")
+    -- sheetView:url("https://i.sugood.xyz/pages/jsonweb.html")
     sheetView:show(time)
 end
 

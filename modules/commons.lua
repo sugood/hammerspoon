@@ -4,7 +4,7 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.4"
+version = "v0.1.8"
 configPath= "~/.hammerspoon/data/config.json"
 initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}
@@ -284,7 +284,7 @@ hs.hotkey.bind(hyperCmd, "P", function ()
     openColorDialog()
 end)
 
---设置颜色拾取快键键
-hs.hotkey.bind(hyperCmd, "C", function ()
+--设置咖啡因开关
+hs.hotkey.bind(hyperCmd, "S", function ()
     switchCaffeine()
 end)
