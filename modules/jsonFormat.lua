@@ -63,8 +63,8 @@ function show(time)
     --print("窗口焦点"..hs.window.focusedWindow())
     sheetView:show(time)
     hs.focus()
-    bindAllSelectKey()
-    hs.timer.delayed.new(0.7, function() bindPasteKey() end):start()
+    hs.timer.delayed.new(0.2, function() bindAllSelectKey() end):start()
+    hs.timer.delayed.new(0.4, function() bindPasteKey() end):start()
     --bindPasteKey()
 end
 
