@@ -4,7 +4,7 @@
 --- DateTime: 2020/10/24 14:13
 ---
 local console = require("hs.console")
-version = "v0.1.9"
+version = "v0.2.0"
 configPath= "~/.hammerspoon/data/config.json"
 initConfigPath= "~/.hammerspoon/data/initConfig.json"
 config = {}

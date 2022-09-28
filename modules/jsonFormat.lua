@@ -6,7 +6,7 @@
 --
 --
 function init()
-    sheetView = nil
+    initWeb()
 end
 
 function initWeb()
@@ -18,7 +18,7 @@ function initWeb()
         w = cres.w*0.85,
         h = cres.h*1.0
     })
-    sheetView:deleteOnClose(true)
+    sheetView:deleteOnClose(false)
     sheetView:windowTitle("JsonFormat")
     sheetView:windowStyle("utility")
     sheetView:titleVisibility("hidden")
@@ -35,7 +35,7 @@ function initWeb()
     sheetView:url("https://i.sugood.xyz/pages/jsonweb.html")
     sheetView:windowCallback(function(action, webview)
         if action == "closing" and not pickedDuration then
-            sheetView = nil
+            -- sheetView = nil
         end
     end)
 end
@@ -44,17 +44,16 @@ end
 --- Method
 --- Hide the JsonFormat view.
 function hide(time)
-    --sheetView:hide(time)
-    sheetView:delete()
+    sheetView:hide(time)
+    -- sheetView:delete()
 
-    sheetView = nil
+    -- sheetView = nil
 end
 
 --- KSheet:show()
 --- Method
 --- Show JsonFormat.
 function show(time)
-    initWeb()
     bindCopyKey()
     local str = hs.pasteboard.getContents()
     -- local webcontent = generateHtml()
@@ -64,12 +63,13 @@ function show(time)
     --print("窗口焦点"..hs.window.focusedWindow())
     sheetView:show(time)
     hs.focus()
+    bindAllSelectKey()
     hs.timer.delayed.new(0.7, function() bindPasteKey() end):start()
     --bindPasteKey()
 end
 
-function toggle()
-    if sheetView ~= nil and sheetView then
+function toggle() 
+    if sheetView and sheetView:hswindow() and sheetView:hswindow():isVisible() then
         hide(1)
     else
         show(1)
@@ -85,6 +85,10 @@ end
 
 function bindPasteKey()
     hs.eventtap.keyStroke({ "cmd" }, "V")
+end
+
+function bindAllSelectKey()
+    hs.eventtap.keyStroke({ "cmd" }, "A")
 end
 
 -- json 格式化
